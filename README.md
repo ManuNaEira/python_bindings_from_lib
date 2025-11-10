@@ -21,11 +21,13 @@ docs](https://docs.astral.sh/uv/getting-started/installation/).
 2. Paste the C++ header files of the library in the `include/` folder, like the example
    [lib1.hpp](./include/lib1.hpp).
 3. Run `uv sync`, to create the python virtual environment and install the python package on it.
-4. Run the test with `uv run tests/test_lib1py.py` and verify how the 
+4. Run the test with `uv run pytest` and verify how the the functionality, coded
+   in C++, is being accessed from python code.
 
 Alternatively, run `uv build` at the root of the repository. It will built the python distribution
 package which can then be installed with `pip` in any other project. The contents of this wheel file
-can be checked with the VSCode task `Unzip lib1py Wheel`, which should be like:
+can be checked with the VSCode task `Unzip lib1py Wheel`, which should be like (using `python 3.11`
+and `linux x86_64` as the platform):
 ```
 📂 wheel_contents/
 ├── 📂 lib1py/

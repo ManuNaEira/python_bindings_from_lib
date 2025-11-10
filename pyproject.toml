@@ -1,7 +1,7 @@
 [project]
 name = "lib1py"
 version = "0.1.0"
-description = "Add your description here"
+description = "Shows python bindings from pre-compiled C++ library"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -16,3 +16,8 @@ cache-keys = [{ file = "pyproject.toml" }, { file = "src/**/*.{h,c,hpp,cpp}" }, 
 [build-system]
 requires = ["scikit-build-core>=0.10", "pybind11"]
 build-backend = "scikit_build_core.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.0",
+]
