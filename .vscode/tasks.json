@@ -1,0 +1,25 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Unzip lib1py Wheel",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "rm -rf wheel_contents && mkdir -p wheel_contents && unzip -q dist/lib1py-0.1.0-cp311-cp311-linux_x86_64.whl -d wheel_contents && echo 'Extracted wheel to wheel_contents/'"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Extracts lib1py wheel file to wheel_contents/ using bash commands"
+        }
+    ]
+}

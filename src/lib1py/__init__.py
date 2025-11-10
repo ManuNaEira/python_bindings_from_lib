@@ -1,5 +1,4 @@
-from lib1py._core import hello_from_bin
+from lib1py._core import print_hello
 
-
-def hello() -> str:
-    return hello_from_bin()
+# Re-export the core function for cleaner imports
+__all__ = ["print_hello"]

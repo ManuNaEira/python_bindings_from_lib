@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Output temporal file to verify wheel contents with the task "Unzip lib1py Wheel"
+wheel_contents/

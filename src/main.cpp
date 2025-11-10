@@ -1,13 +1,8 @@
 #include <pybind11/pybind11.h>
-
-std::string hello_from_bin() { return "Hello from lib1py!"; }
+#include "lib1.hpp"
 
 namespace py = pybind11;
 
 PYBIND11_MODULE(_core, m) {
-  m.doc() = "pybind11 hello module";
-
-  m.def("hello_from_bin", &hello_from_bin, R"pbdoc(
-      A function that returns a Hello string.
-  )pbdoc");
+  m.def("print_hello", &CLib1::PrintHello);
 }
