@@ -7,7 +7,7 @@ find_package(pybind11 CONFIG REQUIRED)
 # Add include directory
 include_directories(include)
 
-# Find the compiled library
+# Find the compiled library, store its full path in the variable `LIB1_LIBRARY`
 find_library(LIB1_LIBRARY 
     NAMES lib1
     PATHS lib
@@ -27,8 +27,12 @@ set_target_properties(_core PROPERTIES
 # Link the library to the module
 target_link_libraries(_core PRIVATE ${LIB1_LIBRARY})
 
-# Add include directories to the target (modern CMake approach)
+# Add include directories to the target
 target_include_directories(_core PRIVATE include)
 
+# Installs the compiled Python extension module into the package directory named
+# after `SKBUILD_PROJECT_NAME`.
 install(TARGETS _core DESTINATION ${SKBUILD_PROJECT_NAME})
+# Installs the external library file (lib1.so or lib1.a) into the same directory
+# as the Python module. Ensures the module can find the library at runtime.
 install(FILES ${LIB1_LIBRARY} DESTINATION ${SKBUILD_PROJECT_NAME})
